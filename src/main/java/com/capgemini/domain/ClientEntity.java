@@ -1,17 +1,18 @@
 package com.capgemini.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="client")
 public class ClientEntity extends AbstractEntity {
-@Id
-private int clientId;
+
 private String name;
 private String surname;
 @Column(name="date_of_birth")

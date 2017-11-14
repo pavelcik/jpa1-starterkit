@@ -1,39 +1,35 @@
 package com.capgemini.domain;
 
 import java.sql.Date;
-import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="rent_details")
-public class RentDetailsEntity {
+public class RentDetailsEntity extends AbstractEntity {
 
-@Id
-private int rentId;
 
 @ManyToOne
 @JoinColumn(name="CLIENT_ID")
-private int clientId;
-
+private ClientEntity clientId;
 @ManyToOne
 @JoinColumn(name="CAR_ID")
-private int carId;
-
+private CarEntity carId;
 private Date rental_date;
 
 private Date return_date;
 
-@ManyToOne
-@JoinColumn(name="division_id")
 private DivisionEntity placeOfRent;
-
-@ManyToOne
-@JoinColumn(name="division_id")
 private DivisionEntity placeOfReturn;
 
 }

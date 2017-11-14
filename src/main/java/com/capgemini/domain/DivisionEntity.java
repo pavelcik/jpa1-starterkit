@@ -5,20 +5,17 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="division")
-public class DivisionEntity {
+public class DivisionEntity extends AbstractEntity {
 
-@Id
-private String divisionId;
+
 private String City;
 private String streetAddress;
 private int phoneNumber;
 private String emailAddress;
-@OneToMany(mappedBy = "division")
-private List<WorkerEntity> workers;
-@OneToMany(mappedBy = "division")
-private List<RentDetailsEntity> rents;
+
 }
