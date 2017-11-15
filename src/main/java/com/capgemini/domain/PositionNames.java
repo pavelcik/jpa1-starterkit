@@ -1,7 +1,11 @@
 package com.capgemini.domain;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+
+
 public enum PositionNames {
-DIRECTOR,
-SALESMAN,
-ACCOUNTANT;
+Director,
+Salesman,
+Accountant;
 }

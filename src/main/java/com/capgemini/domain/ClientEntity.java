@@ -24,4 +24,48 @@ private String streetAddress;
 private String creditCardNumber;
 @Column(name="email_address")
 private String emailAddress;
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getSurname() {
+	return surname;
+}
+public void setSurname(String surname) {
+	this.surname = surname;
+}
+public Date getDateOfBirth() {
+	return dateOfBirth;
+}
+public void setDateOfBirth(Date dateOfBirth) {
+	this.dateOfBirth = dateOfBirth;
+}
+public String getCity() {
+	return city;
+}
+public void setCity(String city) {
+	this.city = city;
+}
+public String getStreetAddress() {
+	return streetAddress;
+}
+public void setStreetAddress(String streetAddress) {
+	this.streetAddress = streetAddress;
+}
+public String getCreditCardNumber() {
+	return creditCardNumber;
+}
+public void setCreditCardNumber(String creditCardNumber) {
+	this.creditCardNumber = creditCardNumber;
+}
+public String getEmailAddress() {
+	return emailAddress;
+}
+public void setEmailAddress(String emailAddress) {
+	this.emailAddress = emailAddress;
+}
+
+
 }
