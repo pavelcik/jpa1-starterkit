@@ -7,11 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.dao.CarDao;
 import com.capgemini.dao.impl.CarDaoImpl;
-import com.capgemini.domain.CarEntity;
-import com.capgemini.domain.WorkerEntity;
-import com.capgemini.mapper.WorkerMapper;
 import com.capgemini.service.CarService;
 import com.capgemini.to.CarTo;
 import com.capgemini.to.WorkerTo;
@@ -21,11 +17,11 @@ public class CarServiceImpl implements CarService {
 	
 	@Autowired
 	private CarDaoImpl carDao;
-	
+
 	
 	@Override
-	public CarTo save(CarTo carTo) {
-		return null;
+	public void save(CarTo carTo) {
+		carDao.save(carTo);
 	}
 
 	@Override
@@ -48,14 +44,13 @@ public class CarServiceImpl implements CarService {
 
 	@Override
 	public CarTo updateDetails(CarTo carTo) {
-		CarTo updatedCar = carDao.update(carTo);
+		CarTo updatedCar = carDao.updateDetails(carTo);
 		return updatedCar;
 	}
 
 	@Override
 	public void deleteCar(CarTo to) {
-		// TODO Auto-generated method stub
-
+		carDao.deleteCar(to);
 	}
 
 	@Override
@@ -65,15 +60,27 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public void addCarToWorker(WorkerTo worker) {
-		// TODO Auto-generated method stub
+	public void addCarToWorker(Long id,CarTo car) {
+		carDao.addCarToWorker(id,car);
 
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<CarTo> findAllCars() {
-		return carDao.findAll();
+
+
+	@Override
+	public List<CarTo> findCarByBrandAndType(String carBrand, String carType) {
+		return carDao.findCarByBrandAndType(carBrand, carType);
 	}
+
+	@Override
+	public List<CarTo> findAllCars() {
+		return carDao.findAllCars();
+	}
+	
+	public CarTo findOne(Long id) {
+		return carDao.findOneTo(id);
+	}
+
 
 
 }

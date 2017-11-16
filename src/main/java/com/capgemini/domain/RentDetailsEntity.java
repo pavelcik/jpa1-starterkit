@@ -27,8 +27,7 @@ public class RentDetailsEntity extends AbstractEntity {
 @JoinColumn(name="CLIENT_ID")
 private ClientEntity clientId;
 @ManyToOne
-@JoinColumn(name="CAR_ID")
-private CarEntity carId;
+private CarEntity car;
 private Date rental_date;
 
 private Date return_date;
@@ -44,11 +43,12 @@ public ClientEntity getClientId() {
 public void setClientId(ClientEntity clientId) {
 	this.clientId = clientId;
 }
-public CarEntity getCarId() {
-	return carId;
+
+public CarEntity getCar() {
+	return car;
 }
-public void setCarId(CarEntity carId) {
-	this.carId = carId;
+public void setCar(CarEntity car) {
+	this.car = car;
 }
 public Date getRental_date() {
 	return rental_date;

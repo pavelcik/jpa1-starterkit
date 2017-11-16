@@ -4,8 +4,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -27,6 +29,9 @@ private int priceByDay;
 
 @ManyToMany
 private List<WorkerEntity> workers;
+
+@OneToMany(mappedBy = "car", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+private List<RentDetailsEntity> rents;
 
 public String getCarName() {
 	return carName;
@@ -100,13 +105,21 @@ public void setPriceByDay(int priceByDay) {
 	this.priceByDay = priceByDay;
 }
 
-//public List<WorkerEntity> getWorkers() {
-//	return workers;
-//}
-//
-//public void setWorkers(List<WorkerEntity> workers) {
-//	this.workers = workers;
-//}
+public List<WorkerEntity> getWorkers() {
+	return workers;
+}
+
+public void setWorkers(List<WorkerEntity> workers) {
+	this.workers = workers;
+}
+
+public List<RentDetailsEntity> getRents() {
+	return rents;
+}
+
+public void setRents(List<RentDetailsEntity> rents) {
+	this.rents = rents;
+}
 
 
 

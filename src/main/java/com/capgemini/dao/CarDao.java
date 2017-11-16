@@ -6,6 +6,7 @@ import java.util.List;
 import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.WorkerEntity;
 import com.capgemini.to.CarTo;
+import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
 
 public interface CarDao {
@@ -15,15 +16,21 @@ public interface CarDao {
 	    
 	 	List<CarTo> findCarByBrand(String carBrand);
 	    
+	 	List<CarTo> findCarByBrandAndType(String carBrand,String carType);
+	 	
 	 	List<CarTo> findCarByWorker(WorkerTo worker);
 
 	 	CarTo updateDetails(CarTo carTo);
 
-	    void deleteCar(CarEntity entity);
+	    void deleteCar(CarTo carTo);
 
 	    void delete(Long id);
+	    
+	    List<CarTo> findAllCars();
 
-	    void addCarToWorker(WorkerTo workerTo);
+		CarEntity findOne(Long id);
+
+		void addCarToWorker(Long workerId, CarTo car);
 	   
 
 }

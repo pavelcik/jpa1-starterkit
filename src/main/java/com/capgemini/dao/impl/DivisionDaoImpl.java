@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.dao.DivisionDao;
+import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.DivisionEntity;
 import com.capgemini.domain.WorkerEntity;
 import com.capgemini.mapper.DivisionMapper;
@@ -45,6 +46,11 @@ public class DivisionDaoImpl  implements DivisionDao  {
 	public DivisionTo findOne(Long id) {
 		return divisionMapper.map(entityManager.find(DivisionEntity.class, id));
 	}
+	
+	
+	public WorkerTo findOneWorker(Long id) {
+		return workerMapper.map(entityManager.find(WorkerEntity.class, id));
+	}
 
 	@Override
 	public List<DivisionTo> findAll() {
@@ -57,13 +63,15 @@ public class DivisionDaoImpl  implements DivisionDao  {
 
 	@Override
 	public DivisionTo update(DivisionTo entity) {
+		     
 		return  divisionMapper.map(entityManager.merge(divisionMapper.map(entity)));
 	}
 
 	@Override
 	public void delete(DivisionTo entity) {
-		 entityManager.remove(divisionMapper.map(entity));
-		
+		DivisionEntity divisionEntity = divisionMapper.map(entity);
+       	Long id = divisionEntity.getId();
+        entityManager.remove(entityManager.contains(divisionEntity) ? divisionEntity : entityManager.merge(divisionEntity));
 	}
 
 	@Override
@@ -95,5 +103,31 @@ public class DivisionDaoImpl  implements DivisionDao  {
 		DivisionEntity division = entityManager.find(DivisionEntity.class, id);
 		return workerMapper.map2To(division.getDivisionWorkers());
 	}
+	@Override
+	public void addWorkerToDivision(Long divisionId,WorkerTo worker) {
+		// TODO Auto-generated method stub
+		DivisionEntity division = entityManager.find(DivisionEntity.class, divisionId);
+		division.getDivisionWorkers().add(workerMapper.map(worker));
+	}
 
-}
+	@Override
+	public void deleteWorkerFromDivision(Long divisionId, Long workerId) {
+		DivisionEntity division = entityManager.find(DivisionEntity.class, divisionId);
+		division.getDivisionWorkers().remove(findOneWorker(workerId));
+		
+	}
+	
+	@Override
+	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId) {
+		List<WorkerTo> workersInDivision = findWorkerByDivision(divisionId);
+		List<WorkerTo> carsByDivisionWorker = new ArrayList<WorkerTo>();
+		for(int i=0;i<workersInDivision.size();i++) {
+			for(int j=0;j<workersInDivision.get(i).getSupervisedCars().size();j++) {
+			if(workersInDivision.get(i).getSupervisedCars().get(j).getId()==carId) {
+				carsByDivisionWorker.add(workersInDivision.get(i));
+			}
+		}
+	}
+		return carsByDivisionWorker;
+} 
+	}

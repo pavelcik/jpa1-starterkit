@@ -28,8 +28,6 @@ public class CarServiceTest {
 	@Autowired
 	CarService carService;
 	
-
-	
 	@Test
 	public void shouldFindCarByType() {
 		// given
@@ -80,17 +78,46 @@ public class CarServiceTest {
 	}
 	
 	@Test
+	public void shouldFindCarByTypeAndBrand() {
+		// given
+
+		String carType = "HATCHBACK";
+		String carBrand = "TOYOTA";
+		// when
+		List<CarTo> foundCars = carService.findCarByBrandAndType(carBrand, carType);
+		// then
+		assertNotNull(foundCars);
+		assertEquals("TOYOTA YARIS", foundCars.get(0).getCarName());
+
+	}
+	
+	@Test
+	public void shouldNotFindCarByTypeAndBrand() {
+		// given
+
+		String carType = "SEDAN";
+		String carBrand = "TOYOTA";
+		// when
+		List<CarTo> foundCars = carService.findCarByBrandAndType(carBrand, carType);
+		// then
+		assertNotNull(foundCars);
+		assertEquals(foundCars.size(),0);
+		
+		
+
+	}
+	
+	@Test
 	public void shouldFindCarByWorker() {
 		// given
 		WorkerTo worker = new WorkerTo();
-		worker.setId(1L);
+		worker.setId(5L);
 		// when
-	
-		
 		List<CarTo> foundCars = carService.findCarByWorker(worker);
 		 //then
 		assertNotNull(foundCars);
-		assertEquals("FORD FIESTA", foundCars.get(0).getCarName());
+		assertEquals("SEAT LEON", foundCars.get(0).getCarName());
+		assertEquals(foundCars.size(),2);
 
 	}
 	
@@ -107,7 +134,7 @@ public class CarServiceTest {
 		CarTo updatedCar = carService.updateDetails(carTo);
 		// then
 		assertNotNull(updatedCar);
-		assertEquals(updatedCar.getColor(),"GREEN");
+		assertEquals(updatedCar.getColor(),"BLUE");
 
 	}
 	
@@ -115,6 +142,7 @@ public class CarServiceTest {
 	public void shouldSaveCar() {
 		//given
 		int size = carService.findAllCars().size();
+		System.out.println("Rozmiar przed: "+size);
 		CarTo carTo = new CarTo();
 		carTo.setCarBrand("Toyota");
 		carTo.setCarName("Toyota Test");
@@ -128,6 +156,34 @@ public class CarServiceTest {
 		//when
 		carService.save(carTo);
 		//then
+		System.out.println("Rozmiar tablicy po dodaniu samochodu: "+carService.findAllCars().size());
 		assertEquals(carService.findAllCars().size(),size+1);
+	}
+	
+	@Test
+	public void shouldDeleteCar() {
+		//given
+		int size = carService.findAllCars().size();
+		Long id = 3L;
+		//when
+		carService.deleteCar(carService.findOne(id));
+		//then
+		assertEquals(carService.findAllCars().size(),size-1);
+	}
+	
+	@Test
+	public void shouldAddCarToWorker() {
+	//given
+	
+	WorkerTo worker = new WorkerTo();
+	worker.setId(2L);
+	Long id = 3L;
+	Long workerId = 2L;
+	int size = carService.findCarByWorker(worker).size();
+	//when
+	carService.addCarToWorker(workerId, carService.findOne(id));
+	//then
+	assertEquals(carService.findCarByWorker(worker).size(),size+1);
+	
 	}
 }

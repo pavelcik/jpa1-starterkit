@@ -37,10 +37,6 @@ private int age;
 
 
 @ManyToMany(mappedBy="workers")
-//@JoinTable(name = "CARS_WORKERS",
-//joinColumns = {@JoinColumn(name = "WORKER_ID", nullable = false, updatable = false)},
-//inverseJoinColumns = {@JoinColumn(name = "CAR_ID", nullable = false, updatable = false)}
-//)
 private List<CarEntity> cars;
 
 @ManyToOne

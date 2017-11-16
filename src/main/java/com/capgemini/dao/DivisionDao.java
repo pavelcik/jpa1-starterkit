@@ -42,4 +42,12 @@ public interface DivisionDao extends Dao<DivisionTo, Long> {
 	public boolean exists(Long id); 
 	
 	public List<WorkerTo> findWorkerByDivision(Long id);
+
+
+	void addWorkerToDivision(Long divisionId, WorkerTo worker);
+	
+	void deleteWorkerFromDivision(Long divisionId, Long workerId);
+
+
+	List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId);
 }

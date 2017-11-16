@@ -28,6 +28,7 @@ public class CarMapper {
 			carTo.setMileage(carEntity.getMileage());
 			carTo.setPriceByDay(carEntity.getPriceByDay());
 			carTo.setProductionYear(carEntity.getProductionYear());
+			carTo.setId(carEntity.getId());
 		}
 		return carTo;
 	}
@@ -45,6 +46,7 @@ public class CarMapper {
 			carEntity.setMileage(carTo.getMileage());
 			carEntity.setPriceByDay(carTo.getPriceByDay());
 			carEntity.setProductionYear(carTo.getProductionYear());
+			carEntity.setId(carTo.getId());
 		}
 		return carEntity;
 	}

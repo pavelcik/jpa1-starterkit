@@ -1,7 +1,7 @@
 package com.capgemini.to;
 
 
-public class CarTo {
+public class CarTo extends AbstractDto {
 	
 	private String carName;
 	private String carType;

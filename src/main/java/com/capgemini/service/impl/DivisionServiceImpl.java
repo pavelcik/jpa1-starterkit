@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.dao.DivisionDao;
+import com.capgemini.domain.DivisionEntity;
 import com.capgemini.service.DivisionService;
 import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
@@ -75,5 +76,23 @@ private DivisionDao divisionDao;
 	public List<WorkerTo> findWorkerByDivision(Long id) {
 		// TODO Auto-generated method stub
 		return divisionDao.findWorkerByDivision(id);
+	}
+
+
+	@Override
+	public void addWorkerToDivision(Long divisionId, WorkerTo worker) {
+		divisionDao.addWorkerToDivision(divisionId, worker);
+		
+	}
+	@Override
+	public void deleteWorkerFromDivision(Long divisionId, Long workerId) {
+		divisionDao.deleteWorkerFromDivision(divisionId, workerId);
+		
+	}
+
+
+	@Override
+	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId) {
+		return divisionDao.findWorkerByDivisionAndCar(divisionId, carId);
 	}
 }
