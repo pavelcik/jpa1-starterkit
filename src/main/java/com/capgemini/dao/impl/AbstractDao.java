@@ -20,7 +20,7 @@ public abstract class AbstractDao<T, K extends Serializable> implements Dao<T, K
     protected EntityManager entityManager;
 
     private Class<T> domainClass;
-    //TODO SPR ADNOTACJE TIMESTAMP ZEBYT BYLO MODIFIED I CREATED
+   
     @Override
     public void save(T entity) {
         entityManager.persist(entity);

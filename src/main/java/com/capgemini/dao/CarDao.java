@@ -30,7 +30,10 @@ public interface CarDao {
 
 		CarEntity findOne(Long id);
 
-		void addCarToWorker(Long workerId, CarTo car);
-	   
+		void addCarToWorker(Long workerId, Long carId);
+
+		WorkerTo findWorkerById(Long id);
+		
+		CarEntity getOne(Long id);
 
 }

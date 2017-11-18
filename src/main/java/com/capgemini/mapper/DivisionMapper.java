@@ -16,6 +16,7 @@ public class DivisionMapper {
 	@PersistenceContext
     private EntityManager entityManager;
 	
+	
 	public static DivisionTo map(DivisionEntity divisionEntity) {
 		DivisionTo divisionTo = null;
 		if(divisionEntity!=null) {

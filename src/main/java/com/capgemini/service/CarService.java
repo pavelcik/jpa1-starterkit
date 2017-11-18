@@ -32,9 +32,11 @@ public interface CarService {
 	
 	public List<CarTo> findCarByBrandAndType(String carBrand,String carType);
 
-	void addCarToWorker(Long id, CarTo car);
+	void addCarToWorker(Long id, Long carId);
 	
 	public CarTo findOne(Long id);
+
+	WorkerTo findWorkerById(Long id);
 	
 
 }

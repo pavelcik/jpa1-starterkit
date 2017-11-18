@@ -44,14 +44,13 @@ public class DivisionServiceTest {
 	@Test
 	public void shouldDeleteDivision() {
 		//given
+		int size = divisionService.findAll().size();
 		long id = 1L;
 		DivisionTo divisionToDelete = divisionService.findOne(id);
-		int size = divisionService.findAll().size();
-		System.out.println(divisionService.findAll().size());
 		//when
-		divisionService.delete(id);
+		divisionService.delete(divisionToDelete);
 		//then
-		System.out.println(divisionService.findAll().size());
+		assertEquals(size-1,divisionService.findAll().size());
 	}
 	
 	@Test
@@ -113,7 +112,7 @@ public class DivisionServiceTest {
 		//when
 		divisionService.deleteWorkerFromDivision(divisionId, workerId);
 		//then
-		assertEquals(divisionService.findWorkerByDivision(divisionId).size(),2);
+		assertEquals(2,divisionService.findWorkerByDivision(divisionId).size());
 		
 		
 		

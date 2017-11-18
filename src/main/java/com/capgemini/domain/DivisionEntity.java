@@ -3,6 +3,7 @@ package com.capgemini.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,8 @@ private String City;
 private String streetAddress;
 private int phoneNumber;
 private String emailAddress;
-@OneToMany(mappedBy="division")
+
+@OneToMany(mappedBy="division",cascade=CascadeType.ALL,orphanRemoval=true)
 private List<WorkerEntity> divisionWorkers = new ArrayList<WorkerEntity>();
 
 public String getCity() {

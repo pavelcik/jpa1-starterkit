@@ -1,6 +1,7 @@
 package com.capgemini.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -13,9 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.capgemini.domain.CarEntity;
-import com.capgemini.domain.WorkerEntity;
-import com.capgemini.service.CarService;
 import com.capgemini.to.CarTo;
 import com.capgemini.to.WorkerTo;
 
@@ -27,6 +25,7 @@ public class CarServiceTest {
 
 	@Autowired
 	CarService carService;
+	
 	
 	@Test
 	public void shouldFindCarByType() {
@@ -127,14 +126,15 @@ public class CarServiceTest {
 	public void shouldUpdateCarDetails() {
 	
 		// given
-		CarTo carTo = new CarTo();
+		Long id = 2L;
+		CarTo carTo = carService.findOne(id);
 		carTo.setColor("BLUE");
 		
 		// when
 		CarTo updatedCar = carService.updateDetails(carTo);
 		// then
 		assertNotNull(updatedCar);
-		assertEquals(updatedCar.getColor(),"BLUE");
+		assertEquals("BLUE",updatedCar.getColor());
 
 	}
 	
@@ -165,25 +165,25 @@ public class CarServiceTest {
 		//given
 		int size = carService.findAllCars().size();
 		Long id = 3L;
+		CarTo car = carService.findOne(id);
 		//when
-		carService.deleteCar(carService.findOne(id));
+		carService.deleteCar(car);
 		//then
-		assertEquals(carService.findAllCars().size(),size-1);
+		assertEquals(size-1,carService.findAllCars().size());
 	}
 	
 	@Test
 	public void shouldAddCarToWorker() {
 	//given
 	
-	WorkerTo worker = new WorkerTo();
-	worker.setId(2L);
-	Long id = 3L;
+	Long carId = 3L;
+	
 	Long workerId = 2L;
-	int size = carService.findCarByWorker(worker).size();
+	
 	//when
-	carService.addCarToWorker(workerId, carService.findOne(id));
+	carService.addCarToWorker(workerId, carId);
 	//then
-	assertEquals(carService.findCarByWorker(worker).size(),size+1);
+	assertEquals(2,carService.findCarByWorker(carService.findWorkerById(workerId)).size());
 	
 	}
 }

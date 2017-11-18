@@ -28,6 +28,7 @@ public class WorkerMapper {
 			workerTo.setSurname(workerEntity.getSurname());
 			workerTo.setSupervisedCars(workerEntity.getCars());
 			workerTo.setId(workerEntity.getId());
+			workerTo.setSupervisedCars(workerEntity.getCars());
 		}
 		return workerTo;
 	}

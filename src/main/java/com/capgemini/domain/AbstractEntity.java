@@ -1,13 +1,18 @@
 package com.capgemini.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PostPersist;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @MappedSuperclass
 
@@ -26,7 +31,7 @@ public abstract class AbstractEntity implements Serializable{
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private long Version = 0L;
 	
-	private String persistingHistory;
+	//private String persistingHistory;
 
 	public long getVersion() {
 		return Version;
@@ -35,14 +40,24 @@ public abstract class AbstractEntity implements Serializable{
 	public void setVersion(long Version) {
 		Version = Version;
 	}
+	
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "creation_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date creationDate;
 
-	public String getPersistingHistory() {
-		return persistingHistory;
-	}
+	@UpdateTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "modification_date",columnDefinition = "TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP")
+	private Date modificationDate;  
 
-	public void setPersistingHistory(String persistingHistory) {
-		this.persistingHistory = persistingHistory;
-	}
+//	public String getPersistingHistory() {
+//		return persistingHistory;
+//	}
+//
+//	public void setPersistingHistory(String persistingHistory) {
+//		this.persistingHistory = persistingHistory;
+//	}
 
 	public Long getId() {
 		return id;

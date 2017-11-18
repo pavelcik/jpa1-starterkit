@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.capgemini.service.DivisionServiceTest" time="0.501" tests="8" errors="1" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\projects\crash_course\jdk\jdk8\jre\bin"/>
+    <property name="java.vm.version" value="25.66-b17"/>
+    <property name="user.country.format" value="PL"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\dpawelcz\Desktop\starter-kit-jpa-starter\jpa1"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\dpawelcz\Desktop\starter-kit-jpa-starter\jpa1"/>
+    <property name="java.runtime.version" value="1.8.0_66-b17"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\projects\crash_course\jdk\jdk8\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\dpawelcz\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\projects\crash_course\\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\projects\crash_course\jdk\jdk8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\projects\crash_course\\jdk\jdk8\bin;C:\projects\crash_course\\maven\bin;C:\projects\crash_course\\git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\GitExtensions\;C:\Program Files (x86)\IDM Computer Solutions\UltraEdit;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\dpawelcz"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="DPAWELCZ"/>
+    <property name="java.class.path" value="C:\projects\crash_course\\maven\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\projects\crash_course\jdk\jdk8\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="user.language.format" value="pl"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_66"/>
+    <property name="java.ext.dirs" value="C:\projects\crash_course\jdk\jdk8\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\projects\crash_course\jdk\jdk8\jre\lib\resources.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\rt.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\sunrsasign.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\jsse.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\jce.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\charsets.jar;C:\projects\crash_course\jdk\jdk8\jre\lib\jfr.jar;C:\projects\crash_course\jdk\jdk8\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp850"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\projects\crash_course\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp850"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="shouldAddWorkersToDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.063"/>
+  <testcase name="shouldAddDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.059"/>
+  <testcase name="shouldFindWorkersInDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.087"/>
+  <testcase name="shouldUpdateDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.029"/>
+  <testcase name="shouldDeleteWorkersInDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.078">
+    <failure message="expected:&lt;3&gt; but was:&lt;2&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<3> but was:<2>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at com.capgemini.service.DivisionServiceTest.shouldDeleteWorkersInDivision(DivisionServiceTest.java:116)
+]]></failure>
+    <system-out><![CDATA[2017-11-16 18:43:27.698  INFO 9156 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@3d9f5016 testClass = DivisionServiceTest, testInstance = com.capgemini.service.DivisionServiceTest@3453acd2, testMethod = shouldDeleteWorkersInDivision@DivisionServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@23ed382c testClass = DivisionServiceTest, locations = '{}', classes = '{class com.capgemini.StarterKitJpaStarterApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.profiles.active=mysql, spring.datasource.username=root, spring.datasource.password=Qwerty123, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@6ddf90b0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a8e6209, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@12e5da86]; rollback [true]
+2017-11-16 18:43:27.703 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    select
+        divisionen0_.id as id1_3_0_,
+        divisionen0_.version as version2_3_0_,
+        divisionen0_.persisting_history as persisti3_3_0_,
+        divisionen0_.city as city4_3_0_,
+        divisionen0_.email_address as email_ad5_3_0_,
+        divisionen0_.phone_number as phone_nu6_3_0_,
+        divisionen0_.street_address as street_a7_3_0_ 
+    from
+        division divisionen0_ 
+    where
+        divisionen0_.id=?
+Hibernate: 
+    select
+        divisionen0_.id as id1_3_0_,
+        divisionen0_.version as version2_3_0_,
+        divisionen0_.persisting_history as persisti3_3_0_,
+        divisionen0_.city as city4_3_0_,
+        divisionen0_.email_address as email_ad5_3_0_,
+        divisionen0_.phone_number as phone_nu6_3_0_,
+        divisionen0_.street_address as street_a7_3_0_ 
+    from
+        division divisionen0_ 
+    where
+        divisionen0_.id=?
+2017-11-16 18:43:27.704 TRACE 9156 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2017-11-16 18:43:27.709 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    select
+        workerenti0_.id as id1_5_0_,
+        workerenti0_.version as version2_5_0_,
+        workerenti0_.persisting_history as persisti3_5_0_,
+        workerenti0_.age as age4_5_0_,
+        workerenti0_.division_id as division8_5_0_,
+        workerenti0_.name as name5_5_0_,
+        workerenti0_.position_name as position6_5_0_,
+        workerenti0_.surname as surname7_5_0_,
+        divisionen1_.id as id1_3_1_,
+        divisionen1_.version as version2_3_1_,
+        divisionen1_.persisting_history as persisti3_3_1_,
+        divisionen1_.city as city4_3_1_,
+        divisionen1_.email_address as email_ad5_3_1_,
+        divisionen1_.phone_number as phone_nu6_3_1_,
+        divisionen1_.street_address as street_a7_3_1_ 
+    from
+        workers workerenti0_ 
+    left outer join
+        division divisionen1_ 
+            on workerenti0_.division_id=divisionen1_.id 
+    where
+        workerenti0_.id=?
+Hibernate: 
+    select
+        workerenti0_.id as id1_5_0_,
+        workerenti0_.version as version2_5_0_,
+        workerenti0_.persisting_history as persisti3_5_0_,
+        workerenti0_.age as age4_5_0_,
+        workerenti0_.division_id as division8_5_0_,
+        workerenti0_.name as name5_5_0_,
+        workerenti0_.position_name as position6_5_0_,
+        workerenti0_.surname as surname7_5_0_,
+        divisionen1_.id as id1_3_1_,
+        divisionen1_.version as version2_3_1_,
+        divisionen1_.persisting_history as persisti3_3_1_,
+        divisionen1_.city as city4_3_1_,
+        divisionen1_.email_address as email_ad5_3_1_,
+        divisionen1_.phone_number as phone_nu6_3_1_,
+        divisionen1_.street_address as street_a7_3_1_ 
+    from
+        workers workerenti0_ 
+    left outer join
+        division divisionen1_ 
+            on workerenti0_.division_id=divisionen1_.id 
+    where
+        workerenti0_.id=?
+2017-11-16 18:43:27.711 TRACE 9156 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2017-11-16 18:43:27.721 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    select
+        divisionwo0_.division_id as division8_5_0_,
+        divisionwo0_.id as id1_5_0_,
+        divisionwo0_.id as id1_5_1_,
+        divisionwo0_.version as version2_5_1_,
+        divisionwo0_.persisting_history as persisti3_5_1_,
+        divisionwo0_.age as age4_5_1_,
+        divisionwo0_.division_id as division8_5_1_,
+        divisionwo0_.name as name5_5_1_,
+        divisionwo0_.position_name as position6_5_1_,
+        divisionwo0_.surname as surname7_5_1_ 
+    from
+        workers divisionwo0_ 
+    where
+        divisionwo0_.division_id=?
+Hibernate: 
+    select
+        divisionwo0_.division_id as division8_5_0_,
+        divisionwo0_.id as id1_5_0_,
+        divisionwo0_.id as id1_5_1_,
+        divisionwo0_.version as version2_5_1_,
+        divisionwo0_.persisting_history as persisti3_5_1_,
+        divisionwo0_.age as age4_5_1_,
+        divisionwo0_.division_id as division8_5_1_,
+        divisionwo0_.name as name5_5_1_,
+        divisionwo0_.position_name as position6_5_1_,
+        divisionwo0_.surname as surname7_5_1_ 
+    from
+        workers divisionwo0_ 
+    where
+        divisionwo0_.division_id=?
+2017-11-16 18:43:27.722 TRACE 9156 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2017-11-16 18:43:27.773  INFO 9156 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@3d9f5016 testClass = DivisionServiceTest, testInstance = com.capgemini.service.DivisionServiceTest@3453acd2, testMethod = shouldDeleteWorkersInDivision@DivisionServiceTest, testException = java.lang.AssertionError: expected:<3> but was:<2>, mergedContextConfiguration = [MergedContextConfiguration@23ed382c testClass = DivisionServiceTest, locations = '{}', classes = '{class com.capgemini.StarterKitJpaStarterApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.profiles.active=mysql, spring.datasource.username=root, spring.datasource.password=Qwerty123, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@6ddf90b0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a8e6209, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+  <testcase name="shouldFindWorkersByDivisionAndCar" classname="com.capgemini.service.DivisionServiceTest" time="0.1"/>
+  <testcase name="shouldNotFindWorkersByDivisionAndCar" classname="com.capgemini.service.DivisionServiceTest" time="0.056"/>
+  <testcase name="shouldDeleteDivision" classname="com.capgemini.service.DivisionServiceTest" time="0.029">
+    <error message="Removing a detached instance com.capgemini.domain.DivisionEntity#1; nested exception is java.lang.IllegalArgumentException: Removing a detached instance com.capgemini.domain.DivisionEntity#1" type="org.springframework.dao.InvalidDataAccessApiUsageException"><![CDATA[org.springframework.dao.InvalidDataAccessApiUsageException: Removing a detached instance com.capgemini.domain.DivisionEntity#1; nested exception is java.lang.IllegalArgumentException: Removing a detached instance com.capgemini.domain.DivisionEntity#1
+	at org.hibernate.jpa.event.internal.core.JpaDeleteEventListener.performDetachedEntityDeletionCheck(JpaDeleteEventListener.java:52)
+	at org.hibernate.event.internal.DefaultDeleteEventListener.onDelete(DefaultDeleteEventListener.java:89)
+	at org.hibernate.event.internal.DefaultDeleteEventListener.onDelete(DefaultDeleteEventListener.java:56)
+	at org.hibernate.internal.SessionImpl.fireDelete(SessionImpl.java:921)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:860)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.remove(AbstractEntityManagerImpl.java:1179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.remove(Unknown Source)
+	at com.capgemini.dao.impl.DivisionDaoImpl.delete(DivisionDaoImpl.java:79)
+	at com.capgemini.dao.impl.DivisionDaoImpl$$FastClassBySpringCGLIB$$d41c1767.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
+	at com.capgemini.dao.impl.DivisionDaoImpl$$EnhancerBySpringCGLIB$$2b722005.delete(<generated>)
+	at com.capgemini.service.impl.DivisionServiceImpl.delete(DivisionServiceImpl.java:53)
+	at com.capgemini.service.impl.DivisionServiceImpl$$FastClassBySpringCGLIB$$f6898ec7.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:280)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
+	at com.capgemini.service.impl.DivisionServiceImpl$$EnhancerBySpringCGLIB$$ddf4138.delete(<generated>)
+	at com.capgemini.service.DivisionServiceTest.shouldDeleteDivision(DivisionServiceTest.java:52)
+]]></error>
+    <system-out><![CDATA[2017-11-16 18:43:28.035  INFO 9156 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@3d9f5016 testClass = DivisionServiceTest, testInstance = com.capgemini.service.DivisionServiceTest@5489b1f7, testMethod = shouldDeleteDivision@DivisionServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@23ed382c testClass = DivisionServiceTest, locations = '{}', classes = '{class com.capgemini.StarterKitJpaStarterApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.profiles.active=mysql, spring.datasource.username=root, spring.datasource.password=Qwerty123, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@6ddf90b0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a8e6209, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@12e5da86]; rollback [true]
+2017-11-16 18:43:28.041 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    select
+        divisionen0_.id as id1_3_0_,
+        divisionen0_.version as version2_3_0_,
+        divisionen0_.persisting_history as persisti3_3_0_,
+        divisionen0_.city as city4_3_0_,
+        divisionen0_.email_address as email_ad5_3_0_,
+        divisionen0_.phone_number as phone_nu6_3_0_,
+        divisionen0_.street_address as street_a7_3_0_ 
+    from
+        division divisionen0_ 
+    where
+        divisionen0_.id=?
+Hibernate: 
+    select
+        divisionen0_.id as id1_3_0_,
+        divisionen0_.version as version2_3_0_,
+        divisionen0_.persisting_history as persisti3_3_0_,
+        divisionen0_.city as city4_3_0_,
+        divisionen0_.email_address as email_ad5_3_0_,
+        divisionen0_.phone_number as phone_nu6_3_0_,
+        divisionen0_.street_address as street_a7_3_0_ 
+    from
+        division divisionen0_ 
+    where
+        divisionen0_.id=?
+2017-11-16 18:43:28.042 TRACE 9156 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2017-11-16 18:43:28.052 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    /* select
+        generatedAlias0 
+    from
+        DivisionEntity as generatedAlias0 */ select
+            divisionen0_.id as id1_3_,
+            divisionen0_.version as version2_3_,
+            divisionen0_.persisting_history as persisti3_3_,
+            divisionen0_.city as city4_3_,
+            divisionen0_.email_address as email_ad5_3_,
+            divisionen0_.phone_number as phone_nu6_3_,
+            divisionen0_.street_address as street_a7_3_ 
+        from
+            division divisionen0_
+Hibernate: 
+    /* select
+        generatedAlias0 
+    from
+        DivisionEntity as generatedAlias0 */ select
+            divisionen0_.id as id1_3_,
+            divisionen0_.version as version2_3_,
+            divisionen0_.persisting_history as persisti3_3_,
+            divisionen0_.city as city4_3_,
+            divisionen0_.email_address as email_ad5_3_,
+            divisionen0_.phone_number as phone_nu6_3_,
+            divisionen0_.street_address as street_a7_3_ 
+        from
+            division divisionen0_
+2017-11-16 18:43:28.065 DEBUG 9156 --- [           main] org.hibernate.SQL                        : 
+    /* select
+        generatedAlias0 
+    from
+        DivisionEntity as generatedAlias0 */ select
+            divisionen0_.id as id1_3_,
+            divisionen0_.version as version2_3_,
+            divisionen0_.persisting_history as persisti3_3_,
+            divisionen0_.city as city4_3_,
+            divisionen0_.email_address as email_ad5_3_,
+            divisionen0_.phone_number as phone_nu6_3_,
+            divisionen0_.street_address as street_a7_3_ 
+        from
+            division divisionen0_
+Hibernate: 
+    /* select
+        generatedAlias0 
+    from
+        DivisionEntity as generatedAlias0 */ select
+            divisionen0_.id as id1_3_,
+            divisionen0_.version as version2_3_,
+            divisionen0_.persisting_history as persisti3_3_,
+            divisionen0_.city as city4_3_,
+            divisionen0_.email_address as email_ad5_3_,
+            divisionen0_.phone_number as phone_nu6_3_,
+            divisionen0_.street_address as street_a7_3_ 
+        from
+            division divisionen0_
+3
+2017-11-16 18:43:28.104  INFO 9156 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@3d9f5016 testClass = DivisionServiceTest, testInstance = com.capgemini.service.DivisionServiceTest@5489b1f7, testMethod = shouldDeleteDivision@DivisionServiceTest, testException = org.springframework.dao.InvalidDataAccessApiUsageException: Removing a detached instance com.capgemini.domain.DivisionEntity#1; nested exception is java.lang.IllegalArgumentException: Removing a detached instance com.capgemini.domain.DivisionEntity#1, mergedContextConfiguration = [MergedContextConfiguration@23ed382c testClass = DivisionServiceTest, locations = '{}', classes = '{class com.capgemini.StarterKitJpaStarterApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.profiles.active=mysql, spring.datasource.username=root, spring.datasource.password=Qwerty123, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@6ddf90b0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a8e6209, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+</testsuite>

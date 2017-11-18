@@ -12,84 +12,74 @@ import com.capgemini.domain.DivisionEntity;
 import com.capgemini.service.DivisionService;
 import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
+
 @Service
 @Transactional
 public class DivisionServiceImpl implements DivisionService {
-@Autowired
-private DivisionDao divisionDao;
+	@Autowired
+	private DivisionDao divisionDao;
+
 	public void save(DivisionTo entity) {
 		divisionDao.save(entity);
-		
+
 	}
 
-	
 	public DivisionTo getOne(Long id) {
 		return divisionDao.getOne(id);
 	}
 
-	
 	public DivisionTo findOne(Long id) {
 		return divisionDao.findOne(id);
 	}
 
-	
 	public List<DivisionTo> findAll() {
-		 return divisionDao.findAll();
+		return divisionDao.findAll();
 	}
 
-	
 	public DivisionTo update(DivisionTo entity) {
-		return  divisionDao.update(entity);
+		return divisionDao.update(entity);
 	}
 
-	
-	public void delete(DivisionTo entity) {
-		divisionDao.delete(entity);
-		
+	public void delete(DivisionTo divisionTo) {
+		divisionDao.delete(divisionTo);
+
 	}
 
-	
 	public void delete(Long id) {
 		divisionDao.delete(id);
-		
+
 	}
 
-	
 	public void deleteAll() {
 		divisionDao.deleteAll();
-		
+
 	}
 
-	
 	public long count() {
-		
-		 return divisionDao.count();
+
+		return divisionDao.count();
 	}
 
-	
 	public boolean exists(Long id) {
 		return divisionDao.exists(id);
 	}
 
-
 	@Override
 	public List<WorkerTo> findWorkerByDivision(Long id) {
-		// TODO Auto-generated method stub
 		return divisionDao.findWorkerByDivision(id);
 	}
-
 
 	@Override
 	public void addWorkerToDivision(Long divisionId, WorkerTo worker) {
 		divisionDao.addWorkerToDivision(divisionId, worker);
-		
+
 	}
+
 	@Override
 	public void deleteWorkerFromDivision(Long divisionId, Long workerId) {
 		divisionDao.deleteWorkerFromDivision(divisionId, workerId);
-		
-	}
 
+	}
 
 	@Override
 	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId) {

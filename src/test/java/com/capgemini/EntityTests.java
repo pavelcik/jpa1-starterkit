@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -18,8 +19,11 @@ public class EntityTests {
 	
 	@Autowired
 	private CarService carService;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 	
 	public void shouldCheckIfVersionHasChanged() {
+		jdbcTemplate
 		
 		
 	}

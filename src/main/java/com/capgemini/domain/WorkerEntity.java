@@ -36,7 +36,7 @@ private String surname;
 private int age;
 
 
-@ManyToMany(mappedBy="workers")
+@ManyToMany(mappedBy="workers",cascade=CascadeType.REMOVE)
 private List<CarEntity> cars;
 
 @ManyToOne

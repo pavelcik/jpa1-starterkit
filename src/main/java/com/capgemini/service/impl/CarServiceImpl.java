@@ -55,13 +55,13 @@ public class CarServiceImpl implements CarService {
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		carDao.delete(id);
 
 	}
 
 	@Override
-	public void addCarToWorker(Long id,CarTo car) {
-		carDao.addCarToWorker(id,car);
+	public void addCarToWorker(Long id,Long carId) {
+		carDao.addCarToWorker(id,carId);
 
 	}
 	
@@ -79,6 +79,11 @@ public class CarServiceImpl implements CarService {
 	
 	public CarTo findOne(Long id) {
 		return carDao.findOneTo(id);
+	}
+
+	@Override
+	public WorkerTo findWorkerById(Long id) {
+	return carDao.findWorkerById(id);
 	}
 
 

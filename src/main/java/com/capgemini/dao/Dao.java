@@ -3,6 +3,8 @@ package com.capgemini.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import com.capgemini.domain.WorkerEntity;
+
 public interface Dao<T, K extends Serializable> {
 
     void save(T entity);
@@ -24,4 +26,6 @@ public interface Dao<T, K extends Serializable> {
     long count();
 
     boolean exists(K id);
+
+	WorkerEntity getOneWorker(Long id);
 }
