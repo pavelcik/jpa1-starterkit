@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.dao.impl.CarDaoImpl;
+import com.capgemini.domain.CarEntity;
 import com.capgemini.service.CarService;
 import com.capgemini.to.CarTo;
 import com.capgemini.to.WorkerTo;
@@ -84,6 +85,11 @@ public class CarServiceImpl implements CarService {
 	@Override
 	public WorkerTo findWorkerById(Long id) {
 	return carDao.findWorkerById(id);
+	}
+
+	@Override
+	public CarEntity findOneCarEntity(Long id) {
+		return carDao.findOne(id);
 	}
 
 

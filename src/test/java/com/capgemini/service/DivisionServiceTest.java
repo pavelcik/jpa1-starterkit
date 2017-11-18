@@ -18,8 +18,8 @@ import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
 
 @TestPropertySource(properties = {"spring.profiles.active=mysql", "spring.datasource.username=root", "spring.datasource.password=Qwerty123"})
-@Transactional
 @RunWith(SpringRunner.class)
+@Transactional
 @SpringBootTest 
 public class DivisionServiceTest {
 
@@ -38,19 +38,19 @@ public class DivisionServiceTest {
 		//when
 		divisionService.save(division);
 		//then
-		assertEquals(divisionService.findAll().size(),size+1);
+		assertEquals(size+1,divisionService.findAll().size());
 	}
 	
 	@Test
 	public void shouldDeleteDivision() {
 		//given
-		int size = divisionService.findAll().size();
+		int size = divisionService.findAllTo().size();
 		long id = 1L;
-		DivisionTo divisionToDelete = divisionService.findOne(id);
+		DivisionTo divisionToDelete = divisionService.getOne(id);
 		//when
 		divisionService.delete(divisionToDelete);
 		//then
-		assertEquals(size-1,divisionService.findAll().size());
+		assertEquals(size-1,divisionService.findAllTo().size());
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class DivisionServiceTest {
 		//when
 		DivisionTo updatedDivision=divisionService.update(division);
 		//then
-		assertEquals(updatedDivision.getCity(),"Warszawa");
+		assertEquals("Warszawa",updatedDivision.getCity());
 	}
 	
 	@Test
@@ -77,7 +77,7 @@ public class DivisionServiceTest {
 		List<WorkerTo> workersInDivision=divisionService.findWorkerByDivision(id);
 		//then
 		assertEquals(workersInDivision.get(0).getSurname(),"WODNIK");
-		assertEquals(workersInDivision.size(),3);
+		assertEquals(3,workersInDivision.size());
 	}
 	
 	@Test
@@ -88,8 +88,8 @@ public class DivisionServiceTest {
 		//when
 		List<WorkerTo> workersInDivision=divisionService.findWorkerByDivisionAndCar(divisionId, carId);
 		//then
-		assertEquals(workersInDivision.get(0).getName(),"RENATA");
-		assertEquals(workersInDivision.size(),1);
+		assertEquals("RENATA",workersInDivision.get(0).getName());
+		assertEquals(1,workersInDivision.size());
 	}
 	
 	@Test
@@ -100,7 +100,7 @@ public class DivisionServiceTest {
 		//when
 		List<WorkerTo> workersInDivision=divisionService.findWorkerByDivisionAndCar(divisionId, carId);
 		//then
-		assertEquals(workersInDivision.size(),0);
+		assertEquals(0,workersInDivision.size());
 	}
 	
 	@Test
@@ -129,11 +129,10 @@ public class DivisionServiceTest {
 		worker.setSurname("Nowak");
 		worker.setPositionName(PositionNames.Accountant);
 		
-		int size = divisionService.findWorkerByDivision(divisionId).size();
 		//when
 		divisionService.addWorkerToDivision(divisionId, worker);
 		//then
-		assertEquals(divisionService.findWorkerByDivision(divisionId).size(),4);
+		assertEquals(4,divisionService.findWorkerByDivision(divisionId).size());
 		
 		
 		

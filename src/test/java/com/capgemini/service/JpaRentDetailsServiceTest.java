@@ -1,5 +1,8 @@
 package com.capgemini.service;
-import java.sql.Date;
+import static org.junit.Assert.*;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,8 +13,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.capgemini.to.CarTo;
-import com.querydsl.jpa.impl.JPAQuery;
+import com.capgemini.domain.CarEntity;
 @TestPropertySource(properties = {"spring.profiles.active=mysql", "spring.datasource.username=root", "spring.datasource.password=Qwerty123"})
 @Transactional
 @RunWith(SpringRunner.class)
@@ -22,31 +24,31 @@ public class JpaRentDetailsServiceTest {
 	private JpaRentDetailsService jpaRentDetailsService;
 	
 	@Test
-	public void shouldCheckIfThereAreMoreThanTenRents() {
+	public void shouldCheckIfThereAreMoreThanOneRent() {
 		//given
 		int size = 1;
+		Long id = 1L;
 		//when
-		List<CarTo> numberOfRentedCars = jpaRentDetailsService.findCarsRentedByMoreThanTenPeople();
-		System.out.println("Rozmiar: "+numberOfRentedCars.size());
-		System.out.println(numberOfRentedCars.get(0).getId());
-		System.out.println(numberOfRentedCars.get(1).getId());
-		System.out.println(numberOfRentedCars.get(2).getId());
-		System.out.println(numberOfRentedCars.get(3).getId());
-		System.out.println(numberOfRentedCars.get(4).getId());
-		System.out.println(numberOfRentedCars.get(5).getId());
-		System.out.println(numberOfRentedCars.get(6).getId());
+		List<CarEntity> numberOfRentedCars = jpaRentDetailsService.findCarsRentedByMoreThanOnePerson();
+		assertEquals(6,numberOfRentedCars.size());
+		assertEquals(id,numberOfRentedCars.get(0).getId());
+	
 	}
 	
 	@Test
 	public void shouldFindNumberOfRentsInTimeframe() {
 		//given
 		int size = 1;
-		@SuppressWarnings("deprecation")
-		Date from = new Date(2017,9,11);
-		@SuppressWarnings("deprecation")
-		Date to = new Date(2017,9,18);
+		
+		LocalDate fromLocalDate = LocalDate.of(2017, 9, 11);
+		java.sql.Date from = java.sql.Date.valueOf(fromLocalDate);
+	
+		LocalDate toLocalDate = LocalDate.of(2017, 9, 19);
+		java.sql.Date to = java.sql.Date.valueOf(toLocalDate);
+		
 		//when
 		int numberOfRents = jpaRentDetailsService.findCarsRentedInTimeframe(from, to);
-		System.out.println(numberOfRents);
+		//then
+		assertEquals(3,numberOfRents);
 	}
 }

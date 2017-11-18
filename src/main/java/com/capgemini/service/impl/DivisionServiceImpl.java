@@ -32,7 +32,7 @@ public class DivisionServiceImpl implements DivisionService {
 		return divisionDao.findOne(id);
 	}
 
-	public List<DivisionTo> findAll() {
+	public List<DivisionEntity> findAll() {
 		return divisionDao.findAll();
 	}
 
@@ -84,5 +84,9 @@ public class DivisionServiceImpl implements DivisionService {
 	@Override
 	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId) {
 		return divisionDao.findWorkerByDivisionAndCar(divisionId, carId);
+	}
+	@Override
+	public List<DivisionTo> findAllTo() {
+		return divisionDao.findAllTo();
 	}
 }

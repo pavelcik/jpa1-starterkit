@@ -18,14 +18,13 @@ public class RentDetailsEntity extends AbstractEntity {
 @OneToOne
 @JoinColumn(name="CLIENT_ID")
 private ClientEntity clientId;
-@ManyToOne(cascade=CascadeType.ALL)
-private CarEntity car;
+
 private Date rental_date;
 
 private Date return_date;
-@ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne(cascade=CascadeType.REMOVE)
 private DivisionEntity placeOfRent ;
-@ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne(cascade=CascadeType.REMOVE)
 private DivisionEntity placeOfReturn;
 public ClientEntity getClientId() {
 	return clientId;
@@ -34,12 +33,7 @@ public void setClientId(ClientEntity clientId) {
 	this.clientId = clientId;
 }
 
-public CarEntity getCar() {
-	return car;
-}
-public void setCar(CarEntity car) {
-	this.car = car;
-}
+
 public Date getRental_date() {
 	return rental_date;
 }

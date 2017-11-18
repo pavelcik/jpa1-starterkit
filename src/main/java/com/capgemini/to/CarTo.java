@@ -12,6 +12,7 @@ public class CarTo extends AbstractDto {
 	private float mileage;
 	private int enginePower;
 	private int priceByDay;
+	
 	public String getCarName() {
 		return carName;
 	}

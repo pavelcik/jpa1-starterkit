@@ -48,7 +48,7 @@ public class CarServiceTest {
 		List<CarTo> foundCars = carService.findCarByType(carType);
 		// then
 		assertNotNull(foundCars);
-		assertEquals(foundCars.size(),0);
+		assertEquals(0,foundCars.size());
 
 	}
 	
@@ -72,7 +72,7 @@ public class CarServiceTest {
 		List<CarTo> foundCars = carService.findCarByBrand(carBrand);
 		// then
 		assertNotNull(foundCars);
-		assertEquals(foundCars.size(),0);
+		assertEquals(0,foundCars.size());
 
 	}
 	
@@ -100,7 +100,7 @@ public class CarServiceTest {
 		List<CarTo> foundCars = carService.findCarByBrandAndType(carBrand, carType);
 		// then
 		assertNotNull(foundCars);
-		assertEquals(foundCars.size(),0);
+		assertEquals(0,foundCars.size());
 		
 		
 
@@ -116,7 +116,7 @@ public class CarServiceTest {
 		 //then
 		assertNotNull(foundCars);
 		assertEquals("SEAT LEON", foundCars.get(0).getCarName());
-		assertEquals(foundCars.size(),2);
+		assertEquals(2,foundCars.size());
 
 	}
 	
@@ -156,8 +156,8 @@ public class CarServiceTest {
 		//when
 		carService.save(carTo);
 		//then
-		System.out.println("Rozmiar tablicy po dodaniu samochodu: "+carService.findAllCars().size());
-		assertEquals(carService.findAllCars().size(),size+1);
+
+		assertEquals(size+1,carService.findAllCars().size());
 	}
 	
 	@Test

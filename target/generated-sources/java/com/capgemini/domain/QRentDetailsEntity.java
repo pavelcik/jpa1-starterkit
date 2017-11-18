@@ -24,8 +24,6 @@ public class QRentDetailsEntity extends EntityPathBase<RentDetailsEntity> {
 
     public final QAbstractEntity _super = new QAbstractEntity(this);
 
-    public final QCarEntity car;
-
     public final QClientEntity clientId;
 
     //inherited
@@ -66,7 +64,6 @@ public class QRentDetailsEntity extends EntityPathBase<RentDetailsEntity> {
 
     public QRentDetailsEntity(Class<? extends RentDetailsEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.car = inits.isInitialized("car") ? new QCarEntity(forProperty("car")) : null;
         this.clientId = inits.isInitialized("clientId") ? new QClientEntity(forProperty("clientId")) : null;
         this.placeOfRent = inits.isInitialized("placeOfRent") ? new QDivisionEntity(forProperty("placeOfRent")) : null;
         this.placeOfReturn = inits.isInitialized("placeOfReturn") ? new QDivisionEntity(forProperty("placeOfReturn")) : null;

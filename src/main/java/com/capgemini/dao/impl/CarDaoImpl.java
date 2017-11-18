@@ -78,10 +78,8 @@ public class CarDaoImpl implements CarDao {
 	public void deleteCar(CarTo carTo) {
 			CarEntity entity = mapper.map(carTo);
 	       	Long id = entity.getId();
-	       	int size = findAllCars().size();
 	       	entity = entityManager.merge(entity);  
 	       	entityManager.remove(entity);  
-	       	size = findAllCars().size();
 	}
 
 	@Override

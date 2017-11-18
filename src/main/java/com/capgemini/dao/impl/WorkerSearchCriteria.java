@@ -1,9 +1,11 @@
 package com.capgemini.dao.impl;
 
+import org.springframework.stereotype.Component;
+
 import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.DivisionEntity;
 import com.capgemini.domain.PositionNames;
-
+@Component
 public class WorkerSearchCriteria {
 
 	private DivisionEntity division;

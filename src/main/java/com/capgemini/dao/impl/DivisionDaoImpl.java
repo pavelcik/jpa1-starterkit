@@ -22,7 +22,7 @@ import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
 
 @Repository
-public class DivisionDaoImpl  implements DivisionDao  {
+public class DivisionDaoImpl extends AbstractDao  implements DivisionDao  {
 
 	@PersistenceContext
 	EntityManager entityManager;
@@ -51,6 +51,10 @@ public class DivisionDaoImpl  implements DivisionDao  {
 	public DivisionTo findOne(Long id) {
 		return divisionMapper.map(entityManager.find(DivisionEntity.class, id));
 	}
+	@Override
+	public DivisionEntity findOneEntity(Long id) {
+		return entityManager.find(DivisionEntity.class, id);
+	}
 	
 	
 	public WorkerTo findOneWorker(Long id) {
@@ -58,13 +62,22 @@ public class DivisionDaoImpl  implements DivisionDao  {
 	}
 
 	@Override
-	public List<DivisionTo> findAll() {
+	public List<DivisionEntity> findAll() {
 			CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 	        CriteriaQuery<DivisionEntity> criteriaQuery = builder.createQuery(DivisionEntity.class);
 	        criteriaQuery.from(DivisionEntity.class);
 	        TypedQuery<DivisionEntity> query = entityManager.createQuery(criteriaQuery);
-	        return divisionMapper.map2To(query.getResultList());
+	        return query.getResultList();
 	}
+	
+	public List<DivisionTo> findAllTo() {
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<DivisionEntity> criteriaQuery = builder.createQuery(DivisionEntity.class);
+        criteriaQuery.from(DivisionEntity.class);
+        TypedQuery<DivisionEntity> query = entityManager.createQuery(criteriaQuery);
+        return divisionMapper.map2To(query.getResultList());
+}
+
 
 	@Override
 	public DivisionTo update(DivisionTo entity) {
@@ -76,7 +89,8 @@ public class DivisionDaoImpl  implements DivisionDao  {
 	public void delete(DivisionTo divisionTo) {
 		DivisionEntity divisionEntity = divisionMapper.map(divisionTo);
        	Long id = divisionEntity.getId();
-        entityManager.remove(entityManager.find(DivisionEntity.class,id));
+       	divisionEntity = entityManager.merge(divisionEntity);
+        entityManager.remove(divisionEntity);
 	}
 
 	@Override

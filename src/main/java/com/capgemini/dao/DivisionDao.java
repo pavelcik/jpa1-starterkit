@@ -10,7 +10,7 @@ import com.capgemini.domain.DivisionEntity;
 import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
 
-public interface DivisionDao extends Dao<DivisionTo, Long> {
+public interface DivisionDao {
 	
 	public void save(DivisionTo entity);
 
@@ -21,7 +21,7 @@ public interface DivisionDao extends Dao<DivisionTo, Long> {
 	public DivisionTo findOne(Long id);
 
 	
-	public List<DivisionTo> findAll();
+	public List<DivisionEntity> findAll();
 
 	
 	public DivisionTo update(DivisionTo entity);
@@ -50,4 +50,9 @@ public interface DivisionDao extends Dao<DivisionTo, Long> {
 
 
 	List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId);
+
+
+	DivisionEntity findOneEntity(Long id);
+	
+	public List<DivisionTo> findAllTo();
 }

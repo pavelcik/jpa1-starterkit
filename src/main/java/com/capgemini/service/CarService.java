@@ -38,5 +38,7 @@ public interface CarService {
 
 	WorkerTo findWorkerById(Long id);
 	
+	public CarEntity findOneCarEntity(Long id);
+	
 
 }

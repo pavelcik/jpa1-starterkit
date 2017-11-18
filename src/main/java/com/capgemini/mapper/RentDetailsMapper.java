@@ -21,7 +21,6 @@ public class RentDetailsMapper {
 		RentDetailsTo rentDetailsTo = null;
 		if(rentDetailsEntity!=null) {
 			rentDetailsTo = new RentDetailsTo();
-			rentDetailsTo.setCar(rentDetailsEntity.getCar());
 			rentDetailsTo.setClientId(rentDetailsEntity.getClientId());
 			rentDetailsTo.setPlaceOfRent(rentDetailsEntity.getPlaceOfRent());
 			rentDetailsTo.setPlaceOfReturn(rentDetailsEntity.getPlaceOfReturn());
@@ -37,7 +36,6 @@ public class RentDetailsMapper {
 		RentDetailsEntity rentDetailsEntity = null;
 		if(rentDetailsTo!=null) {
 			rentDetailsEntity = new RentDetailsEntity();
-			rentDetailsEntity.setCar(rentDetailsTo.getCar());
 			rentDetailsEntity.setClientId(rentDetailsTo.getClientId());
 			rentDetailsEntity.setPlaceOfRent(rentDetailsTo.getPlaceOfRent());
 			rentDetailsEntity.setPlaceOfReturn(rentDetailsTo.getPlaceOfReturn());

@@ -1,14 +1,11 @@
 package com.capgemini.domain;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,7 +31,8 @@ public class CarEntity extends AbstractEntity {
 	@ManyToMany
 	private List<WorkerEntity> workers;
 
-	@OneToMany(mappedBy = "car", fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@JoinColumn(name="car_id")
 	private List<RentDetailsEntity> rents;
 
 	public String getCarName() {

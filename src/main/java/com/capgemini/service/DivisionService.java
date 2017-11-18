@@ -13,7 +13,7 @@ public interface DivisionService {
 
 	public DivisionTo findOne(Long id);
 
-	public List<DivisionTo> findAll();
+	public List<DivisionEntity> findAll();
 
 	public DivisionTo update(DivisionTo entity);
 
@@ -34,4 +34,6 @@ public interface DivisionService {
 	public void deleteWorkerFromDivision(Long divisionId, Long workerId);
 
 	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId);
+
+	List<DivisionTo> findAllTo();
 }

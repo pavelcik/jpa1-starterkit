@@ -7,16 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.dao.impl.JPaRentDetailsDao;
+import com.capgemini.domain.CarEntity;
 import com.capgemini.service.JpaRentDetailsService;
 import com.capgemini.to.CarTo;
-import com.querydsl.jpa.impl.JPAQuery;
+
 @Service
 public class JpaRentDetailsServiceImpl implements JpaRentDetailsService {
 @Autowired
 private JPaRentDetailsDao jpaRentDetailsDao;
 	@Override
-	public List<CarTo> findCarsRentedByMoreThanTenPeople() {
-		return jpaRentDetailsDao.findCarsRentedByMoreThanTenPeople();
+	public List<CarEntity> findCarsRentedByMoreThanOnePerson() {
+		return jpaRentDetailsDao.findCarsRentedByMoreThanOnePerson();
 	}
 	@Override
 	public int findCarsRentedInTimeframe(Date from, Date to) {

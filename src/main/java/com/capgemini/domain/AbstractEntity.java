@@ -31,20 +31,19 @@ public abstract class AbstractEntity implements Serializable{
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private long Version = 0L;
 	
-	//private String persistingHistory;
-
-	public long getVersion() {
-		return Version;
-	}
-
-	public void setVersion(long Version) {
-		Version = Version;
-	}
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "creation_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date creationDate;
+
+	public long getVersion() {
+		return Version;
+	}
+
+	public void setVersion(long version) {
+		Version = version;
+	}
 
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)

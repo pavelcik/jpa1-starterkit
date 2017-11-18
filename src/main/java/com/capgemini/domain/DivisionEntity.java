@@ -21,7 +21,7 @@ private String streetAddress;
 private int phoneNumber;
 private String emailAddress;
 
-@OneToMany(mappedBy="division",cascade=CascadeType.ALL,orphanRemoval=true)
+@OneToMany(mappedBy="division",cascade=CascadeType.REMOVE)
 private List<WorkerEntity> divisionWorkers = new ArrayList<WorkerEntity>();
 
 public String getCity() {
