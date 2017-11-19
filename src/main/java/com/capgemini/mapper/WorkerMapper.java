@@ -8,9 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
 
-import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.WorkerEntity;
-import com.capgemini.to.CarTo;
 import com.capgemini.to.WorkerTo;
 @Component
 public class WorkerMapper {

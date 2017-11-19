@@ -5,28 +5,30 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.capgemini.domain.CarEntity;
+import com.capgemini.dao.JPaWorkerDao;
 import com.capgemini.domain.WorkerEntity;
-import com.capgemini.model.QCarEntity;
-import com.capgemini.model.QDivisionEntity;
+import com.capgemini.mapper.WorkerMapper;
 import com.capgemini.model.QWorkerEntity;
 import com.capgemini.service.SearchWorkerRepository;
+import com.capgemini.to.WorkerTo;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
 
 @Repository
-public class JpaWorkerDao implements SearchWorkerRepository {
+public class JpaWorkerDaoImpl implements SearchWorkerRepository, JPaWorkerDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	@Autowired
+	private WorkerMapper mapper;
 
 	@Override
-	public List<WorkerEntity> findWorkerByCriteria(WorkerSearchCriteria searchCriteria) {
+	public List<WorkerTo> findWorkerByCriteria(WorkerSearchCriteria searchCriteria) {
 		QWorkerEntity worker = QWorkerEntity.workerEntity;
-		
 
 		List<Predicate> predicates = Lists.newArrayList();
 
@@ -44,7 +46,8 @@ public class JpaWorkerDao implements SearchWorkerRepository {
 		}
 
 		JPAQuery<WorkerEntity> query = new JPAQuery<>(entityManager);
-		return query.select(worker).from(worker).where(predicates.toArray(new Predicate[predicates.size()])).fetch();
+		return mapper.map2To(
+				query.select(worker).from(worker).where(predicates.toArray(new Predicate[predicates.size()])).fetch());
 	}
 
 }

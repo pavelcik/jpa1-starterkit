@@ -35,10 +35,6 @@ public class QRentDetailsEntity extends EntityPathBase<RentDetailsEntity> {
     //inherited
     public final DateTimePath<java.util.Date> modificationDate = _super.modificationDate;
 
-    public final QDivisionEntity placeOfRent;
-
-    public final QDivisionEntity placeOfReturn;
-
     public final DatePath<java.sql.Date> rental_date = createDate("rental_date", java.sql.Date.class);
 
     public final DatePath<java.sql.Date> return_date = createDate("return_date", java.sql.Date.class);
@@ -65,8 +61,6 @@ public class QRentDetailsEntity extends EntityPathBase<RentDetailsEntity> {
     public QRentDetailsEntity(Class<? extends RentDetailsEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.clientId = inits.isInitialized("clientId") ? new QClientEntity(forProperty("clientId")) : null;
-        this.placeOfRent = inits.isInitialized("placeOfRent") ? new QDivisionEntity(forProperty("placeOfRent")) : null;
-        this.placeOfReturn = inits.isInitialized("placeOfReturn") ? new QDivisionEntity(forProperty("placeOfReturn")) : null;
     }
 
 }

@@ -16,8 +16,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @MappedSuperclass
 
-public abstract class AbstractEntity implements Serializable{
-	
+public abstract class AbstractEntity implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -28,13 +28,12 @@ public abstract class AbstractEntity implements Serializable{
 	private Long id;
 
 	@Version
-    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
-    private long Version = 0L;
-	
-	
+	@Column(columnDefinition = "integer DEFAULT 0", nullable = false)
+	private long Version = 0L;
+
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "creation_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "creation_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date creationDate;
 
 	public long getVersion() {
@@ -47,16 +46,8 @@ public abstract class AbstractEntity implements Serializable{
 
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "modification_date",columnDefinition = "TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP")
-	private Date modificationDate;  
-
-//	public String getPersistingHistory() {
-//		return persistingHistory;
-//	}
-//
-//	public void setPersistingHistory(String persistingHistory) {
-//		this.persistingHistory = persistingHistory;
-//	}
+	@Column(name = "modification_date", columnDefinition = "TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP")
+	private Date modificationDate;
 
 	public Long getId() {
 		return id;
@@ -65,6 +56,5 @@ public abstract class AbstractEntity implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
+
 }

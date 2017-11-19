@@ -22,8 +22,6 @@ public class RentDetailsMapper {
 		if(rentDetailsEntity!=null) {
 			rentDetailsTo = new RentDetailsTo();
 			rentDetailsTo.setClientId(rentDetailsEntity.getClientId());
-			rentDetailsTo.setPlaceOfRent(rentDetailsEntity.getPlaceOfRent());
-			rentDetailsTo.setPlaceOfReturn(rentDetailsEntity.getPlaceOfReturn());
 			rentDetailsTo.setRental_date(rentDetailsEntity.getRental_date());
 			rentDetailsTo.setReturn_date(rentDetailsEntity.getReturn_date());
 			rentDetailsTo.setId(rentDetailsEntity.getId());
@@ -37,8 +35,6 @@ public class RentDetailsMapper {
 		if(rentDetailsTo!=null) {
 			rentDetailsEntity = new RentDetailsEntity();
 			rentDetailsEntity.setClientId(rentDetailsTo.getClientId());
-			rentDetailsEntity.setPlaceOfRent(rentDetailsTo.getPlaceOfRent());
-			rentDetailsEntity.setPlaceOfReturn(rentDetailsTo.getPlaceOfReturn());
 			rentDetailsEntity.setRental_date(rentDetailsTo.getRental_date());
 			rentDetailsEntity.setReturn_date(rentDetailsTo.getReturn_date());
 			rentDetailsEntity.setId(rentDetailsTo.getId());

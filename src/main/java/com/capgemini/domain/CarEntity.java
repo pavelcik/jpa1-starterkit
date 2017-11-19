@@ -14,10 +14,6 @@ import javax.persistence.Table;
 @Table(name = "car")
 public class CarEntity extends AbstractEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String carName;
 	private String carType;
 	private String carBrand;
@@ -31,8 +27,8 @@ public class CarEntity extends AbstractEntity {
 	@ManyToMany
 	private List<WorkerEntity> workers;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	@JoinColumn(name="car_id")
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name = "car_id")
 	private List<RentDetailsEntity> rents;
 
 	public String getCarName() {

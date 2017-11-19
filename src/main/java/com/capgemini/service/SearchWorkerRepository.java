@@ -3,9 +3,9 @@ package com.capgemini.service;
 import java.util.List;
 
 import com.capgemini.dao.impl.WorkerSearchCriteria;
-import com.capgemini.domain.WorkerEntity;
+import com.capgemini.to.WorkerTo;
 
 public interface SearchWorkerRepository {
 
-	public List<WorkerEntity> findWorkerByCriteria(WorkerSearchCriteria searchCriteria);
+	public List<WorkerTo> findWorkerByCriteria(WorkerSearchCriteria searchCriteria);
 }

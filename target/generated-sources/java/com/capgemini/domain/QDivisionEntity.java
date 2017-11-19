@@ -39,6 +39,10 @@ public class QDivisionEntity extends EntityPathBase<DivisionEntity> {
 
     public final NumberPath<Integer> phoneNumber = createNumber("phoneNumber", Integer.class);
 
+    public final ListPath<RentDetailsEntity, QRentDetailsEntity> rents = this.<RentDetailsEntity, QRentDetailsEntity>createList("rents", RentDetailsEntity.class, QRentDetailsEntity.class, PathInits.DIRECT2);
+
+    public final ListPath<RentDetailsEntity, QRentDetailsEntity> returns = this.<RentDetailsEntity, QRentDetailsEntity>createList("returns", RentDetailsEntity.class, QRentDetailsEntity.class, PathInits.DIRECT2);
+
     public final StringPath streetAddress = createString("streetAddress");
 
     //inherited

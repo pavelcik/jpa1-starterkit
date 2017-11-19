@@ -1,39 +1,36 @@
 package com.capgemini.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import com.capgemini.domain.CarEntity;
-import com.capgemini.domain.WorkerEntity;
 import com.capgemini.to.CarTo;
-import com.capgemini.to.DivisionTo;
 import com.capgemini.to.WorkerTo;
 
 public interface CarDao {
-	 	void save(CarTo carTo);
+	void save(CarTo carTo);
 
-	 	List<CarTo> findCarByType(String carType);
-	    
-	 	List<CarTo> findCarByBrand(String carBrand);
-	    
-	 	List<CarTo> findCarByBrandAndType(String carBrand,String carType);
-	 	
-	 	List<CarTo> findCarByWorker(WorkerTo worker);
+	List<CarTo> findCarByType(String carType);
 
-	 	CarTo updateDetails(CarTo carTo);
+	List<CarTo> findCarByBrand(String carBrand);
 
-	    void deleteCar(CarTo carTo);
+	List<CarTo> findCarByBrandAndType(String carBrand, String carType);
 
-	    void delete(Long id);
-	    
-	    List<CarTo> findAllCars();
+	List<CarTo> findCarByWorker(WorkerTo worker);
 
-		CarEntity findOne(Long id);
+	CarTo updateDetails(CarTo carTo);
 
-		void addCarToWorker(Long workerId, Long carId);
+	void deleteCar(CarTo carTo);
 
-		WorkerTo findWorkerById(Long id);
-		
-		CarEntity getOne(Long id);
+	void delete(Long id);
+
+	List<CarTo> findAllCars();
+
+	CarEntity findOne(Long id);
+
+	void addCarToWorker(Long workerId, Long carId);
+
+	WorkerTo findWorkerById(Long id);
+
+	CarEntity getOne(Long id);
 
 }
