@@ -8,11 +8,14 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.dao.CarDao;
 import com.capgemini.domain.CarEntity;
+import com.capgemini.domain.RentDetailsEntity;
 import com.capgemini.domain.WorkerEntity;
 import com.capgemini.mapper.CarMapper;
 import com.capgemini.mapper.WorkerMapper;
@@ -67,17 +70,16 @@ public class CarDaoImpl implements CarDao {
 	@Override
 	public CarTo updateDetails(CarTo carTo) {
 		CarEntity entity = CarMapper.map(carTo);
-		// entity = findOne(entity.getId());
+	
 		return mapper.map(entityManager.merge(entity));
 	}
 
 	@Override
 
 	public void deleteCar(CarTo carTo) {
-		CarEntity entity = mapper.map(carTo);
-		Long id = entity.getId();
-		entity = entityManager.merge(entity);
-		entityManager.remove(entity);
+		Mapper mapper = new DozerBeanMapper();
+		CarEntity entity = mapper.map(carTo, CarEntity.class);
+		entityManager.remove(entityManager.merge(entity));
 	}
 
 	@Override

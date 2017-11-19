@@ -22,6 +22,8 @@ import com.google.common.collect.Maps;
 
 @TestPropertySource(properties = { "spring.profiles.active=mysql", "spring.datasource.username=root",
 		"spring.datasource.password=Qwerty123" })
+//@TestPropertySource(properties = { "spring.profiles.active=hsql", "spring.datasource.username=SA",
+//"spring.datasource.password=" })
 @Transactional
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -205,10 +207,14 @@ public class CarServiceTest {
 		Long id = 3L;
 		CarTo car = carService.findOne(id);
 		// when
+		
 		carService.deleteCar(car);
+		
 		// then
 		assertEquals(size - 1, carService.findAllCars().size());
 	}
+	
+
 
 	@Test
 	public void shouldAddCarToWorker() {

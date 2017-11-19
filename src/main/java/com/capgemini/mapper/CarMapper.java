@@ -3,17 +3,13 @@ package com.capgemini.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Component;
 
 import com.capgemini.domain.CarEntity;
 import com.capgemini.to.CarTo;
 @Component
 public class CarMapper {
-	@PersistenceContext
-    private EntityManager entityManager;
+	
 	
 	public static CarTo map(CarEntity carEntity) {
 		CarTo carTo = null;
@@ -30,6 +26,7 @@ public class CarMapper {
 			carTo.setProductionYear(carEntity.getProductionYear());
 			carTo.setId(carEntity.getId());
 			carTo.setVersion(carEntity.getVersion());
+			carTo.setRents(carEntity.getRents());
 		}
 		return carTo;
 	}
@@ -49,6 +46,7 @@ public class CarMapper {
 			carEntity.setProductionYear(carTo.getProductionYear());
 			carEntity.setId(carTo.getId());
 			carEntity.setVersion(carTo.getVersion());
+			carEntity.setRents(carTo.getRents());
 		}
 		return carEntity;
 	}

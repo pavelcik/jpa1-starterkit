@@ -12,14 +12,13 @@ import com.capgemini.dao.JPaWorkerDao;
 import com.capgemini.domain.WorkerEntity;
 import com.capgemini.mapper.WorkerMapper;
 import com.capgemini.model.QWorkerEntity;
-import com.capgemini.service.SearchWorkerRepository;
 import com.capgemini.to.WorkerTo;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
 
 @Repository
-public class JpaWorkerDaoImpl implements SearchWorkerRepository, JPaWorkerDao {
+public class JpaWorkerDaoImpl implements JPaWorkerDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;

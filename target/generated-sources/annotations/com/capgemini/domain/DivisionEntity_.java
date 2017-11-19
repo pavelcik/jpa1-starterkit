@@ -13,7 +13,9 @@ public abstract class DivisionEntity_ extends com.capgemini.domain.AbstractEntit
 	public static volatile SingularAttribute<DivisionEntity, String> emailAddress;
 	public static volatile SingularAttribute<DivisionEntity, Integer> phoneNumber;
 	public static volatile SingularAttribute<DivisionEntity, String> streetAddress;
+	public static volatile ListAttribute<DivisionEntity, RentDetailsEntity> returns;
 	public static volatile SingularAttribute<DivisionEntity, String> City;
+	public static volatile ListAttribute<DivisionEntity, RentDetailsEntity> rents;
 
 }
 

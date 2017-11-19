@@ -36,4 +36,6 @@ public interface DivisionService {
 	public List<WorkerTo> findWorkerByDivisionAndCar(Long divisionId, Long carId);
 
 	List<DivisionTo> findAllTo();
+	
+	public DivisionEntity findOneEntity(Long id);
 }

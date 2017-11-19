@@ -2,7 +2,6 @@ package com.capgemini.to;
 
 import java.sql.Date;
 
-import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.ClientEntity;
 import com.capgemini.domain.DivisionEntity;
 

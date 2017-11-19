@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.capgemini.AllTests
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.434 sec - in com.capgemini.AllTests

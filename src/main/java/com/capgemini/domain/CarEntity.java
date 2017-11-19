@@ -27,7 +27,7 @@ public class CarEntity extends AbstractEntity {
 	@ManyToMany
 	private List<WorkerEntity> workers;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "car_id")
 	private List<RentDetailsEntity> rents;
 

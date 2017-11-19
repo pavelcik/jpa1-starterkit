@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.capgemini.dao.DivisionDao;
 import com.capgemini.dao.impl.WorkerSearchCriteria;
 import com.capgemini.domain.CarEntity;
 import com.capgemini.domain.DivisionEntity;
@@ -28,11 +27,11 @@ public class JPaWorkerDaoServiceTest {
 	@Autowired
 	private JpaWorkerService jpaWorkerService;
 	@Autowired
-	private DivisionDao divisionDao;
-	@Autowired
 	private CarService carService;
 	@Autowired
 	private WorkerSearchCriteria criteria;
+	@Autowired
+	private DivisionService divisionService;
 
 	@Before
 	public void resetCriteria() {
@@ -45,7 +44,7 @@ public class JPaWorkerDaoServiceTest {
 	public void shouldFindWorkersByDivision() {
 
 		Long id = 3L;
-		DivisionEntity divisionEntity = divisionDao.findOneEntity(id);
+		DivisionEntity divisionEntity = divisionService.findOneEntity(id);
 		criteria.setDivision(divisionEntity);
 		int size = jpaWorkerService.findWorkerByCriteria(criteria).size();
 

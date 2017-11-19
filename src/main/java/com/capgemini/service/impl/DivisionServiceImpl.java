@@ -89,4 +89,8 @@ public class DivisionServiceImpl implements DivisionService {
 	public List<DivisionTo> findAllTo() {
 		return divisionDao.findAllTo();
 	}
+	
+	public DivisionEntity findOneEntity(Long id) {
+		return divisionDao.findOneEntity(id);
+	}
 }

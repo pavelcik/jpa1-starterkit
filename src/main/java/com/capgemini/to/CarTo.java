@@ -1,5 +1,8 @@
 package com.capgemini.to;
 
+import java.util.List;
+
+import com.capgemini.domain.RentDetailsEntity;
 
 public class CarTo extends AbstractDto {
 	
@@ -12,6 +15,7 @@ public class CarTo extends AbstractDto {
 	private float mileage;
 	private int enginePower;
 	private int priceByDay;
+	private List<RentDetailsEntity> rents;
 	
 	public String getCarName() {
 		return carName;
@@ -66,6 +70,12 @@ public class CarTo extends AbstractDto {
 	}
 	public void setPriceByDay(int priceByDay) {
 		this.priceByDay = priceByDay;
+	}
+	public List<RentDetailsEntity> getRents() {
+		return rents;
+	}
+	public void setRents(List<RentDetailsEntity> rents) {
+		this.rents = rents;
 	}
 
 	
